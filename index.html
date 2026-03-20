@@ -103,10 +103,62 @@
     }
 
     tbody td .abstract {
-      display: block;
       font-size: 0.82rem;
       color: #555;
-      margin-top: 0.3rem;
+      margin-top: 0.4rem;
+    }
+
+    tbody td .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+
+    tbody td .meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    tbody td .meta span::before {
+      display: inline-block;
+      width: 1.1rem;
+      text-align: center;
+      font-size: 1.0rem;
+    }
+
+    tbody td .meta span.time::before {
+      content: "🕒";
+    }
+
+    tbody td .meta span.place::before {
+      content: "📍";
+    }
+
+    .toggle-abstract {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.6rem;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid #bbb;
+      border-radius: 0.35rem;
+      background: #fff;
+      color: #222;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .toggle-abstract:hover {
+      border-color: #999;
+    }
+
+    .toggle-abstract:focus-visible {
+      outline: 3px solid #a2c4f7;
+      outline-offset: 2px;
     }
 
     .badge-tba {
@@ -148,14 +200,17 @@
   <section>
     <h2>About</h2>
     <div class="info-box">
-      <p><strong>When:</strong> Every Monday, 14:00–15:00 (GMT+1)</p>
-      <p><strong>Where:</strong> Room Analysen, Edit Building &mdash; and online via Zoom (link sent to the mailing list)</p>
-      <p><strong>Organizers:</strong> Richard Beckmann, Johann Flemming Gloy</p>
-      <p><strong>Contact:</strong> <a href="mailto:gloy@chalmers.se">gloy@chalmers.se</a></p>
+      This website contains the schedule and information about the DSAI Seminar, a weekly seminar series on broad data science and artificial intelligence topics.
+      <br />
+      The seminar is hosted by the Data Science and Artificial Intelligence Division at the Computer Science and Engineering Department at Chalmers University of Technology and the University of Gothenburg.
+      <br />
+      Usually, the seminar takes place every Monday from 14:00 to 15:00 (GMT+1) in Room Analysen, Edit Building, and online via Zoom (link sent to the mailing list). 
+      <p><strong>Current Organizers:</strong> Richard Beckmann, Johann Flemming Gloy</p>
+      <p><strong>Contact:</strong>  <a href="mailto:ricbec@chalmers.se">ricbec@chalmers.se</a>, <a href="mailto:gloy@chalmers.se">gloy@chalmers.se</a></p>
     </div>
   </section>
 
-  <section>
+  <section id="schedule">
     <h2>Schedule</h2>
     <table>
       <thead>
@@ -166,20 +221,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr data-date="2026-03-23">
           <td class="date">23 March 2026</td>
-          <td class="speaker">Josef Urban</td>
+          <td class="speaker">
+            Josef Urban
             <span class="affiliation"></span>
           </td>
           <td>
             <span class="title">Joined seminar with FM</span>
-            <span class="abstract">
-             
-            </span>
+            <div class="meta">
+              <span class="time">14:00–15:00</span>
+              <span class="place">Analysen, Edit Building</span>
+            </div>
+            <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
+            <div class="abstract" hidden>
+            </div>
           </td>
         </tr>
 
-        <tr>
+        <tr data-date="2026-03-30">
           <td class="date">30 March 2026</td>
           <td class="speaker">
             Daniel Bisig
@@ -187,13 +247,17 @@
           </td>
           <td>
             <span class="title"></span>
-            <span class="abstract">
-              
-            </span>
+            <div class="meta">
+              <span class="time">14:00–15:00</span>
+              <span class="place">Analysen, Edit Building</span>
+            </div>
+            <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
+            <div class="abstract" hidden>
+            </div>
           </td>
         </tr>
 
-        <tr>
+        <tr data-date="2026-04-06">
           <td class="date">6 April 2026</td>
           <td class="speaker">
             Guy Axelrod
@@ -201,13 +265,17 @@
           </td>
           <td>
             <span class="title"></span>
-            <span class="abstract">
-              
-            </span>
+            <div class="meta">
+              <span class="time">14:00–15:00</span>
+              <span class="place">Analysen, Edit Building</span>
+            </div>
+            <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
+            <div class="abstract" hidden>
+            </div>
           </td>
         </tr>
 
-         <tr>
+        <tr data-date="2026-04-13">
           <td class="date">13 April 2026</td>
           <td class="speaker">
             Devdatt Dubhashi
@@ -215,12 +283,16 @@
           </td>
           <td>
             <span class="title">AI for Math and Open Science Workshop</span>
-            <span class="abstract">
-              
-            </span>
+            <div class="meta">
+              <span class="time">14:00–15:00</span>
+              <span class="place">Analysen, Edit Building</span>
+            </div>
+            <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
+            <div class="abstract" hidden>
+            </div>
           </td>
         </tr>
-       <tr>
+        <tr data-date="2026-04-20">
           <td class="date">20 April 2026</td>
           <td class="speaker">
             TBD
@@ -228,27 +300,87 @@
           </td>
           <td>
             <span class="title"></span>
-            <span class="abstract">
-              
-            </span>
+            <div class="meta">
+              <span class="time">14:00–15:00</span>
+              <span class="place">Analysen, Edit Building</span>
+            </div>
+            <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
+            <div class="abstract" hidden>
+            </div>
           </td>
         </tr>
-        <tr>
+        <tr data-date="2026-04-27">
           <td class="date">27 April 2026</td>
           <td class="speaker">
-             Xuechen Liu
+            Xuechen Liu
             <span class="affiliation"></span>
           </td>
           <td>
             <span class="title"></span>
-            <span class="abstract">
-              
-            </span>
+            <div class="meta">
+              <span class="time">14:00–15:00</span>
+              <span class="place">Analysen, Edit Building</span>
+            </div>
+            <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
+            <div class="abstract" hidden>
+            </div>
+          </td>
+        </tr>
+        <tr data-date="2026-02-9">
+          <td class="date">9 Feb 2026</td>
+          <td class="speaker">
+            Filip Kronström
+            <span class="affiliation"></span>
+          </td>
+          <td>
+            <span class="title"></span>
+            <div class="meta">
+              <span class="time">14:00–15:00</span>
+              <span class="place">Analysen, Edit Building</span>
+            </div>
+          </td>
+        </tr>
+        <tr data-date="2026-02-23">
+          <td class="date">23 Feb 2026</td>
+          <td class="speaker">
+            Matti Karppa
+            <span class="affiliation"></span>
+          </td>
+          <td>
+            <span class="title">Engineering Compressed Matrix Multiplication using the Fast Walsh-Hadamard Transform 	</span>
+            <div class="meta">
+              <span class="time">14:00–15:00</span>
+              <span class="place">Analysen, Edit Building</span>
+            </div>
+          </td>
+        </tr>
+         <tr data-date="2026-03-13">
+          <td class="date">16 Mar 2026</td>
+          <td class="speaker">
+            Kim Jörgensen
+            <span class="affiliation"></span>
+          </td>
+          <td>
+            <span class="title">Introduction to Generative RecSys and Semantic IDs 	</span>
+            <div class="meta">
+              <span class="time">14:00–15:00</span>
+              <span class="place">Analysen, Edit Building</span>
+            </div>
+            <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
+            <div class="abstract" hidden>
+              This talk explores the emerging field of generative recommender systems and their foundation in large language models. We'll examine what foundation models are, when they offer advantages for recommendation tasks, and when traditional approaches may be more suitable. A key focus will be on Semantic IDs—a novel approach to representing items in ways that LLMs can understand and generate. I'll demonstrate how to leverage Semantic IDs to build LLM-based recommender systems, covering practical aspects including:
+              Implementing models for Semantic ID generation, 
+              Fine-tuning large language models for recommendation tasks, 
+              Optimization strategies for efficient training, 
+              Evaluation methodologies for generative recommendation systems.
+              The session will provide both conceptual foundations and practical insights for researchers and practitioners interested in applying generative AI to recommendation problems.
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
-  <!--</section>
+  </section>
+  <section id="past-talks">
     <h2>Past Talks</h2>
     <table>
       <thead>
@@ -259,35 +391,73 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="date">27 Feb 2026</td>
-          <td class="speaker">
-            David Lee
-            <span class="affiliation">MIT CSAIL</span>
-          </td>
-          <td>
-            <span class="title">Graph Neural Networks for Molecular Property Prediction</span>
-          </td>
-        </tr>
-        <tr>
-          <td class="date">13 Feb 2026</td>
-          <td class="speaker">
-            Eva Rossi
-            <span class="affiliation">Università di Bologna</span>
-          </td>
-          <td>
-            <span class="title">Explainability in High-Stakes Decision Making</span>
-          </td>
-        </tr>
+        <!-- Past talks are moved here automatically based on the current date -->
       </tbody>
     </table>
-  </section> 
--->
+  </section>
 </main>
 
 <footer>
   <p>DSAI Seminar &mdash; <a href="https://github.com/dsai-seminar">github.com/dsai-seminar</a></p>
 </footer>
+
+<script>
+  // Reorder schedule so the nearest upcoming talk appears first,
+  // with past talks moved to the end.
+  document.addEventListener('DOMContentLoaded', () => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+  const scheduleBody = document.querySelector('#schedule table tbody');
+    const pastBody = document.querySelector('#past-talks tbody');
+    if (scheduleBody) {
+      const rows = Array.from(scheduleBody.querySelectorAll('tr[data-date]'));
+      const parsed = rows.map((row) => {
+        const date = new Date(row.dataset.date);
+        date.setHours(0, 0, 0, 0);
+        return { row, date };
+      });
+
+      const upcoming = parsed
+        .filter(({ date }) => date >= today)
+        .sort((a, b) => a.date - b.date)
+        .map((entry) => entry.row);
+
+      const past = parsed
+        .filter(({ date }) => date < today)
+        .sort((a, b) => b.date - a.date)
+        .map((entry) => entry.row);
+
+      scheduleBody.innerHTML = '';
+      upcoming.concat(past).forEach((row) => scheduleBody.appendChild(row));
+
+      if (pastBody) {
+        pastBody.innerHTML = '';
+        past.forEach((row) => pastBody.appendChild(row));
+      }
+    }
+
+    // Toggle abstract visibility
+    const toggles = document.querySelectorAll('.toggle-abstract');
+    toggles.forEach((btn) => {
+      const target = btn.nextElementSibling;
+      if (!target || !target.classList.contains('abstract')) return;
+
+      const text = target.textContent.trim();
+      if (!text) {
+        btn.style.display = 'none';
+        return;
+      }
+
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        btn.textContent = expanded ? 'Show abstract' : 'Hide abstract';
+        target.hidden = expanded;
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
