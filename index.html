@@ -56,59 +56,77 @@
       font-size: 0.92rem;
     }
 
-    thead th {
-      text-align: left;
-      padding: 0.4rem 0.6rem;
-      border-bottom: 1px solid #222;
-      font-weight: bold;
-      font-family: 'Courier New', monospace;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+    #schedule thead,
+    #past-talks thead {
+      display: none;
     }
 
-    tbody tr {
-      border-bottom: 1px solid #ddd;
+    #schedule tbody tr,
+    #past-talks tbody tr {
+      display: block;
+      margin-bottom: 0.9rem;
+      padding: 0.9rem 1rem 1rem;
+      border: 1px solid #ddd;
+      border-left: 3px solid #222;
+      background: #fff;
     }
 
-    tbody tr:last-child {
-      border-bottom: none;
+    #schedule tbody tr:last-child,
+    #past-talks tbody tr:last-child {
+      margin-bottom: 0;
     }
 
-    tbody td {
-      padding: 0.65rem 0.6rem;
+    #schedule tbody td,
+    #past-talks tbody td {
+      display: block;
+      width: 100%;
+      padding: 0;
       vertical-align: top;
     }
 
-    tbody td.date {
+    #schedule tbody td + td,
+    #past-talks tbody td + td {
+      margin-top: 0.2rem;
+    }
+
+    #schedule tbody td.date,
+    #past-talks tbody td.date {
       white-space: nowrap;
       color: #888;
       font-family: 'Courier New', monospace;
-      font-size: 0.85rem;
-      width: 7rem;
+      font-size: 0.82rem;
     }
 
-    tbody td.speaker {
-      width: 12rem;
+    #schedule tbody td.speaker,
+    #past-talks tbody td.speaker {
+      font-size: 0.95rem;
     }
 
-    tbody td .affiliation {
+    #schedule tbody td .affiliation,
+    #past-talks tbody td .affiliation {
       display: block;
       font-size: 0.8rem;
       color: #888;
     }
 
-    tbody td .title {
+    #schedule tbody td .title,
+    #past-talks tbody td .title {
+      display: block;
       font-style: italic;
+      line-height: 1.5;
+      font-size: 1rem;
+      margin-top: 0.35rem;
     }
 
-    tbody td .abstract {
+    #schedule tbody td .abstract,
+    #past-talks tbody td .abstract {
       font-size: 0.82rem;
       color: #555;
       margin-top: 0.4rem;
     }
 
-    tbody td .meta {
+    #schedule tbody td .meta,
+    #past-talks tbody td .meta {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
@@ -117,13 +135,15 @@
       margin-top: 0.5rem;
     }
 
-    tbody td .meta span {
+    #schedule tbody td .meta span,
+    #past-talks tbody td .meta span {
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
     }
 
-    tbody td .meta span::before {
+    #schedule tbody td .meta span::before,
+    #past-talks tbody td .meta span::before {
       display: inline-block;
       width: 1.1rem;
       text-align: center;
