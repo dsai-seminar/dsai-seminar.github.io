@@ -16,7 +16,7 @@
     }
 
     header {
-      max-width: 720px;
+      max-width: 1000px;
       margin: 0 auto 3rem;
       border-bottom: 2px solid #222;
       padding-bottom: 1.5rem;
@@ -34,7 +34,7 @@
     }
 
     main {
-      max-width: 720px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
@@ -179,7 +179,7 @@
     }
 
     footer {
-      max-width: 720px;
+      max-width: 1000px;
       margin: 4rem auto 0;
       font-size: 0.8rem;
       color: #aaa;
@@ -228,13 +228,14 @@
             <span class="affiliation"></span>
           </td>
           <td>
-            <span class="title">Joined seminar with FM</span>
+            <span class="title">130k Lines of Formal Topology in Two Weeks: Simple and Cheap Autoformalization for Everyone? (Joined seminar with the <a href="https://chalmersformalmethods.github.io/">Division of Formal Methods</a>)</span>
             <div class="meta">
               <span class="time">14:00–15:00</span>
               <span class="place">Analysen, Edit Building</span>
             </div>
             <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
             <div class="abstract" hidden>
+              This is a brief description of a project that has already autoformalized a large portion of the general topology from the Munkres textbook (which has in total 241 pages in 7 chapters and 39 sections). The project has been running since November 21, 2025 and has as of January 4, 2026, produced 160k lines of formalized topology. Most of it (about 130k lines) have been done in two weeks,from December 22 to January 4, for an LLM subscription cost of about $100. This includes a 3k-line proof of Urysohn's lemma, a 2k-line proof of Urysohn's Metrization theorem, over 10k-line proof of the Tietze extension theorem, and many more (in total over 1.5k lemmas/theorems). The approach is quite simple and cheap: build a long-running feedback loop between an LLM and a reasonably fast proof checker equipped with a core foundational library. The LLM is now instantiated as ChatGPT (mostly 5.2) or Claude Sonnet (4.5) run through the respective Codex or Claude Code command line interfaces. The proof checker is Chad Brown's higher-order set theory system Megalodon, and the core library is Brown's formalization of basic set theory and surreal numbers (including reals, etc). The rest is some prompt engineering and technical choices which we describe here. Based on the fast progress, low cost, virtually unknown ITP/library, and the simple setup available to everyone, we believe that (auto)formalization may become quite easy and ubiquitous in 2026, regardless of which proof assistant is used.
             </div>
           </td>
         </tr>
@@ -316,13 +317,16 @@
             <span class="affiliation"></span>
           </td>
           <td>
-            <span class="title"></span>
+            <span class="title">Grounding Machine Creativity in Game Design Knowledge Representations: Empirical Probing of LLM-Based Executable Synthesis of Goal Playable Patterns under Structural Constraints</span>
             <div class="meta">
               <span class="time">14:00–15:00</span>
               <span class="place">Analysen, Edit Building</span>
             </div>
             <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
             <div class="abstract" hidden>
+              Creatively translating complex gameplay ideas into executable artifacts (e.g., games as Unity projects and code) remains a central challenge in computational game creativity. Gameplay design patterns provide a structured representation for describing gameplay phenomena, enabling designers to decompose high-level ideas into entities, constraints, and rule-driven dynamics. Among them, goal patterns formalize common player-objective relationships. Goal Playable Concepts (GPCs) operationalize these abstractions as playable Unity engine implementations, supporting experiential exploration and compositional gameplay design. We frame scalable playable pattern realization as a problem of constrained executable creative synthesis: generated artifacts must satisfy Unity's syntactic and architectural requirements while preserving the semantic gameplay meanings encoded in goal patterns. This dual constraint limits scalability. Therefore, we investigate whether contemporary large language models (LLMs) can perform such synthesis under engine-level structural constraints and generate Unity code (as games) structured and conditioned by goal playable patterns. Using 26 goal pattern instantiations, we compare a direct generation baseline (natural language -> C# -> Unity) with pipelines conditioned on a human-authored Unity-specific intermediate representation (IR), across three IR configurations and two open-source models (DeepSeek-Coder-V2-Lite-Instruct and Qwen2.5-Coder-7B-Instruct). Compilation success is evaluated via automated Unity replay. We propose grounding and hygiene failure modes, identifying structural and project-level grounding as primary bottlenecks.
+            <br />
+            <a href="https://arxiv.org/abs/2603.07101" target="_blank">arXiv:https://arxiv.org/abs/2603.07101</a>
             </div>
           </td>
         </tr>
