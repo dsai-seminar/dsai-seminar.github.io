@@ -4,33 +4,118 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DSAI Seminar</title>
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (_) {
+        // Ignore storage access errors and keep default theme.
+      }
+    })();
+  </script>
   <style>
+    :root {
+      color-scheme: light;
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --surface-muted: #f0f0f0;
+      --text: #222222;
+      --muted: #555555;
+      --subtle: #888888;
+      --border: #dddddd;
+      --border-strong: #222222;
+      --border-soft: #bbbbbb;
+      --border-soft-hover: #999999;
+      --focus: #a2c4f7;
+      --footer: #aaaaaa;
+      --link: #1a4d8f;
+      --link-hover: #123766;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #111315;
+      --surface: #1b1f23;
+      --surface-muted: #1f262d;
+      --text: #e7e7e7;
+      --muted: #c0c6cd;
+      --subtle: #9aa4af;
+      --border: #3a4148;
+      --border-strong: #d0d6dd;
+      --border-soft: #616b75;
+      --border-soft-hover: #7b8590;
+      --focus: #75a9ff;
+      --footer: #8f98a2;
+      --link: #8ab4ff;
+      --link-hover: #b2cdff;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: Georgia, serif;
-      background: #fafafa;
-      color: #222;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
       padding: 2rem 1rem;
+    }
+
+    a {
+      color: var(--link);
+    }
+
+    a:hover {
+      color: var(--link-hover);
     }
 
     header {
       max-width: 1000px;
       margin: 0 auto 3rem;
-      border-bottom: 2px solid #222;
+      border-bottom: 2px solid var(--border-strong);
       padding-bottom: 1.5rem;
+    }
+
+    .header-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
     header h1 {
       font-size: 1.8rem;
       letter-spacing: 0.03em;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0;
     }
 
     header p {
-      color: #555;
+      color: var(--muted);
       font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--border-soft);
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--border-soft-hover);
+    }
+
+    .theme-toggle:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
     }
 
     main {
@@ -46,7 +131,7 @@
       font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: #888;
+      color: var(--subtle);
       margin-bottom: 1rem;
     }
 
@@ -66,9 +151,9 @@
       display: block;
       margin-bottom: 0.9rem;
       padding: 0.9rem 1rem 1rem;
-      border: 1px solid #ddd;
-      border-left: 3px solid #222;
-      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--border-strong);
+      background: var(--surface);
     }
 
     #schedule tbody tr:last-child,
@@ -92,7 +177,7 @@
     #schedule tbody td.date,
     #past-talks tbody td.date {
       white-space: nowrap;
-      color: #888;
+      color: var(--subtle);
       font-family: 'Courier New', monospace;
       font-size: 0.82rem;
     }
@@ -106,7 +191,7 @@
     #past-talks tbody td .affiliation {
       display: block;
       font-size: 0.8rem;
-      color: #888;
+      color: var(--subtle);
     }
 
     #schedule tbody td .title,
@@ -121,7 +206,7 @@
     #schedule tbody td .abstract,
     #past-talks tbody td .abstract {
       font-size: 0.82rem;
-      color: #555;
+      color: var(--muted);
       margin-top: 0.4rem;
     }
 
@@ -131,7 +216,7 @@
       flex-wrap: wrap;
       gap: 1rem;
       font-size: 0.82rem;
-      color: #666;
+      color: var(--muted);
       margin-top: 0.5rem;
     }
 
@@ -164,32 +249,32 @@
       gap: 0.35rem;
       margin-top: 0.6rem;
       padding: 0.25rem 0.6rem;
-      border: 1px solid #bbb;
+      border: 1px solid var(--border-soft);
       border-radius: 0.35rem;
-      background: #fff;
-      color: #222;
+      background: var(--surface);
+      color: var(--text);
       font-size: 0.82rem;
       cursor: pointer;
     }
 
     .toggle-abstract:hover {
-      border-color: #999;
+      border-color: var(--border-soft-hover);
     }
 
     .toggle-abstract:focus-visible {
-      outline: 3px solid #a2c4f7;
+      outline: 3px solid var(--focus);
       outline-offset: 2px;
     }
 
     .badge-tba {
       font-size: 0.75rem;
-      color: #aaa;
+      color: var(--footer);
       font-style: normal;
     }
 
     .info-box {
-      background: #f0f0f0;
-      border-left: 3px solid #222;
+      background: var(--surface-muted);
+      border-left: 3px solid var(--border-strong);
       padding: 0.8rem 1rem;
       font-size: 0.9rem;
     }
@@ -202,17 +287,26 @@
       max-width: 1000px;
       margin: 4rem auto 0;
       font-size: 0.8rem;
-      color: #aaa;
-      border-top: 1px solid #ddd;
+      color: var(--footer);
+      border-top: 1px solid var(--border);
       padding-top: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .header-main {
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>DSAI Seminar</h1>
-  <p>Data Science &amp; Artificial Intelligence &mdash; Spring/Summer 2026</p>
+  <div class="header-main">
+    <h1>DSAI Seminar</h1>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+  </div>
+  <p>Data Science &amp; Artificial Intelligence Seminar &mdash; Spring/Summer 2026</p>
 </header>
 
 <main>
@@ -429,6 +523,34 @@
   // Reorder schedule so the nearest upcoming talk appears first,
   // with past talks moved to the end.
   document.addEventListener('DOMContentLoaded', () => {
+    const root = document.documentElement;
+    const themeToggle = document.querySelector('#theme-toggle');
+    const applyTheme = (theme) => {
+      if (theme === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+      } else {
+        root.removeAttribute('data-theme');
+      }
+      if (themeToggle) {
+        const dark = theme === 'dark';
+        themeToggle.setAttribute('aria-pressed', String(dark));
+        themeToggle.textContent = dark ? 'Light mode' : 'Dark mode';
+      }
+    };
+
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(nextTheme);
+        try {
+          localStorage.setItem('theme', nextTheme);
+        } catch (_) {
+          // Ignore storage access errors.
+        }
+      });
+    }
+
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
