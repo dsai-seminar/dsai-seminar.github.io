@@ -204,7 +204,9 @@
     }
 
     #schedule tbody td .abstract,
-    #past-talks tbody td .abstract {
+    #past-talks tbody td .abstract,
+    #schedule tbody td .bio,
+    #past-talks tbody td .bio {
       font-size: 0.82rem;
       color: var(--muted);
       margin-top: 0.4rem;
@@ -243,7 +245,8 @@
       content: "📍";
     }
 
-    .toggle-abstract {
+    .toggle-abstract,
+    .toggle-bio {
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
@@ -257,13 +260,24 @@
       cursor: pointer;
     }
 
-    .toggle-abstract:hover {
+    .toggle-abstract:hover,
+    .toggle-bio:hover {
       border-color: var(--border-soft-hover);
     }
 
-    .toggle-abstract:focus-visible {
+    .toggle-abstract:focus-visible,
+    .toggle-bio:focus-visible {
       outline: 3px solid var(--focus);
       outline-offset: 2px;
+    }
+
+    #schedule tbody td.speaker .toggle-bio,
+    #past-talks tbody td.speaker .toggle-bio {
+      display: flex;
+      width: fit-content;
+      margin-top: 0.25rem;
+      margin-left: 0;
+      vertical-align: baseline;
     }
 
     .badge-tba {
@@ -402,15 +416,22 @@
           <td class="speaker">
               <a href="http://julian.togelius.com/">Julian Togelius</a>
             <span class="affiliation">New York University</span>
+            <button class="toggle-bio" type="button" aria-expanded="false">Show bio</button>
           </td>
           <td>
-            <span class="title"></span>
+            <div class="bio" hidden>
+              Julian Togelius is a Professor of Computer Science at the New York University (NYU) Tandon School of Engineering, where he directs the Game Innovation Lab. He is also an IEEE Fellow and the co-founder of the AI-driven game testing startup, modl.ai. A world-renowned expert at the intersection of games and AI, his research focuses on procedural content generation, player modeling, and using games as testbeds for artificial intelligence. He is the co-author of the widely used textbook 
+              <i>Artificial Intelligence and Games</i>
+              and his work explores how AI can make games more fun, easier to design, and highly adaptive.
+            </div>
+            <span class="title">Game generation for cognitive science and open-ended learning (and fun)</span>
             <div class="meta">
               <span class="time">11:00–12:00</span>
               <span class="place">Analysen, Edit Building</span>
             </div>
             <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
             <div class="abstract" hidden>
+              How can you create a system that can design novel, good games? And why would you want to do that? To answer the latter question first, we might want to understand how humans create or model their decision-making processes, but we may also want to create new testbeds for AI development. Or ideation tools for designers. To answer the first question, I will describe a series of systems developed my teams at IT University of Copenhagen and New York University. These systems generally build on evolutionary algorithms, and use simulated game-playing as part of an evaluation function. Accurately algorithmically estimating game quality is hard, but inspiration can be taken from game design theory, developmental psychology, and other cognitive sciences. Estimating how well a human would play or learn to play a game, a necessary precondition in many theories of game quality, is itself non-trivial, but reinforcement learning, imitation learning, and good old planning provide useful tools. 
             </div>
           </td>
         </tr>
@@ -625,12 +646,7 @@
       }
     }
 
-    // Toggle abstract visibility
-    const toggles = document.querySelectorAll('.toggle-abstract');
-    toggles.forEach((btn) => {
-      const target = btn.nextElementSibling;
-      if (!target || !target.classList.contains('abstract')) return;
-
+    const setupToggle = (btn, target, showLabel, hideLabel) => {
       const text = target.textContent.trim();
       if (!text) {
         btn.style.display = 'none';
@@ -640,9 +656,25 @@
       btn.addEventListener('click', () => {
         const expanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!expanded));
-        btn.textContent = expanded ? 'Show abstract' : 'Hide abstract';
+        btn.textContent = expanded ? showLabel : hideLabel;
         target.hidden = expanded;
       });
+    };
+
+    // Toggle abstract visibility
+    const toggles = document.querySelectorAll('.toggle-abstract');
+    toggles.forEach((btn) => {
+      const target = btn.nextElementSibling;
+      if (!target || !target.classList.contains('abstract')) return;
+      setupToggle(btn, target, 'Show abstract', 'Hide abstract');
+    });
+
+    // Toggle bio visibility
+    const bioToggles = document.querySelectorAll('.toggle-bio');
+    bioToggles.forEach((btn) => {
+      const target = btn.closest('td.speaker')?.nextElementSibling?.querySelector('.bio');
+      if (!target || !target.classList.contains('bio')) return;
+      setupToggle(btn, target, 'Show bio', 'Hide bio');
     });
   });
 </script>
