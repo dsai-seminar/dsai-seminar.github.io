@@ -479,11 +479,25 @@
             </div>
             <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
             <div class="abstract" hidden>
-              TBD
+              Real-world datasets are inherently heterogeneous, yet how per-class structural differences and sampling imbalance shape the training dynamics of diffusion models—and potentially exacerbate disparities—remains poorly understood.
+				
+				While models typically transition from an initial phase of generalization to memorizing the training set, existing theory assumes homogeneous data, leaving open how class imbalance and heterogeneity reshape these dynamics.
+				
+				In this work, we develop a high-dimensional analytical framework to study class-dependent learning in score-based diffusion models. Analyzing a random-features model trained on Gaussian mixtures, we derive the feature-covariance spectrum to characterize per-class generalization and memorization times.
+				
+				We reveal the explicit hierarchy governing these dynamics: class variance is the primary determinant of learning order—consistently favoring higher-variance classes—while centroid geometry plays a secondary role.
+				
+				Sampling imbalance acts as a modulator that can reverse this ordering and, under strong imbalance, forces minority classes to acquire distinct, delayed speciation times during backward diffusion.
+				
+				Together, these results suggest that diffusion models can memorize some classes while others remain insufficiently learned. We validate our theoretical predictions empirically using U-Net models trained on Fashion MNIST.
               
               <br><br>
               
-              <b>Bio:</b> TBD. (Flavio is a postdoc at DSAI.)
+              <b>Bio:</b> Flavio worked from 2020 to 2023 as a PhD student with Prof. Federico Ricci-Tersenghi (Sapienza University of Rome) and Prof. Silvio Franz (Université Paris-Saclay) in an international cotutelle program, studying the low-temperature physics of vector spin glasses.
+				
+				From July 2023 to March 2025, he worked as a postdoc with Prof. Federico Ricci-Tersenghi, studying generalizations of vector spin glasses to neural network models.
+				
+				His current research focuses on understanding the impact of bias in machine learning and animal behaviour, building on simplified and solvable neural network models. (Flavio is a postdoc at DSAI.)
             </div>
           </td>
         </tr>
