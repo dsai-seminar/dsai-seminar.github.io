@@ -437,6 +437,28 @@
             </div>
           </td>
         </tr>
+        <tr data-date="2026-10-12">
+          <td class="date">12 October 2026</td>
+          <td class="speaker">
+            Frederik Thomsen
+            <span class="affiliation">Chalmers and GU</span>
+          </td>
+          <td>
+            <span class="title">Title: TBD</span>
+            <div class="meta">
+              <span class="time">14:00–15:00</span>
+              <span class="place">Analysen, EDIT Building</span>
+            </div>
+            <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
+            <div class="abstract" hidden>
+              TBD
+              
+              <br><br>
+              
+              <b>Bio:</b> TBD. (Frederik is an incoming postdoc at DSAI.)
+            </div>
+          </td>
+        </tr>
         <tr data-date="2026-10-09">
           <td class="date">9 October 2026</td>
           <td class="speaker">
@@ -481,15 +503,15 @@
             <div class="abstract" hidden>
               Scientific machine learning has emerged as a promising research paradigm at the intersection of machine learning (ML) and scientific computing. Scientific knowledge can be incorporated into ML models, for example, via architectural changes or physics-based loss terms, improving their accuracy and their ability to generalize. Conversely, ML methods can enable new applications in the natural sciences that would otherwise be too computationally expensive or intractable. In this talk, I will give an overview of several research projects in this area from my PhD research and my ongoing work in Simon Olsson's group at Chalmers.
 
-			  Physics-informed neural networks (PINNs) constitute a highly flexible framework for solving differential equations, with particular promise for inverse problems in non-standard settings. In my research, I focused on training PINNs with noisy data. Specifically, we will see how the noise shape can be identified together with the solution to the differential equation, and how uncertainty intervals can be estimated.
+      			  Physics-informed neural networks (PINNs) constitute a highly flexible framework for solving differential equations, with particular promise for inverse problems in non-standard settings. In my research, I focused on training PINNs with noisy data. Specifically, we will see how the noise shape can be identified together with the solution to the differential equation, and how uncertainty intervals can be estimated.
 
-			  The design of particle detectors typically relies on scientific intuition and expensive simulations. There is the possibility to make the exploration of different detector configurations more efficient by using optimization methods from ML. To this end, we developed a generative surrogate model for signal generation in the IceCube-Gen2 detector, to serve as part of a fully differentiable optimization pipeline.
+      			  The design of particle detectors typically relies on scientific intuition and expensive simulations. There is the possibility to make the exploration of different detector configurations more efficient by using optimization methods from ML. To this end, we developed a generative surrogate model for signal generation in the IceCube-Gen2 detector, to serve as part of a fully differentiable optimization pipeline.
 
-			  While it is possible to perform molecular simulations to high accuracy, they can be extremely computationally expensive. Implicit transfer operators (ITOs) seek to remedy this issue by training an ML surrogate model capable of taking large time steps, and with the potential to generalize to new molecules. In our work, we develop a framework for the systematic evaluation of ITOs, in particular, how accurately different physical properties of the underlying dynamical processes are reproduced. In a separate branch of research, we study the effects that the masking of the training data has on ITOs. We show how this could, in principle, imbue the ITO with additional capabilities, and we highlight connections to coarse-graining.
+      			  While it is possible to perform molecular simulations to high accuracy, they can be extremely computationally expensive. Implicit transfer operators (ITOs) seek to remedy this issue by training an ML surrogate model capable of taking large time steps, and with the potential to generalize to new molecules. In our work, we develop a framework for the systematic evaluation of ITOs, in particular, how accurately different physical properties of the underlying dynamical processes are reproduced. In a separate branch of research, we study the effects that the masking of the training data has on ITOs. We show how this could, in principle, imbue the ITO with additional capabilities, and we highlight connections to coarse-graining.
               
               <br><br>
               
-              <b>Bio:</b> Philipp Pilar joined the Artificial Intelligence in the Natural Sciences (AIMLeNS) group at Chalmers University of Technology as a postdoctoral researcher in 2026. He holds a PhD in physics-informed machine learning from Uppsala University and an MSc in Technical Physics from TU Wien. His research interests lie in scientific machine learning, with a particular focus on developing machine learning methods for scientific applications. He is currently working on generative machine learning models for molecular dynamics. (Philipp is a postdoc at DSAI.)
+              <b>Bio:</b> Philipp Pilar joined the Artificial Intelligence in the Natural Sciences (AIMLeNS) group at Chalmers University of Technology as a postdoctoral researcher in 2026. He holds a PhD in physics-informed machine learning from Uppsala University and an MSc in Technical Physics from TU Wien. His research interests lie in scientific machine learning, with a particular focus on developing machine learning methods for scientific applications. He is currently working on generative machine learning models for molecular dynamics.
             </div>
           </td>
         </tr>
@@ -509,23 +531,23 @@
             <div class="abstract" hidden>
               Real-world datasets are inherently heterogeneous, yet how per-class structural differences and sampling imbalance shape the training dynamics of diffusion models—and potentially exacerbate disparities—remains poorly understood.
 				
-				While models typically transition from an initial phase of generalization to memorizing the training set, existing theory assumes homogeneous data, leaving open how class imbalance and heterogeneity reshape these dynamics.
-				
-				In this work, we develop a high-dimensional analytical framework to study class-dependent learning in score-based diffusion models. Analyzing a random-features model trained on Gaussian mixtures, we derive the feature-covariance spectrum to characterize per-class generalization and memorization times.
-				
-				We reveal the explicit hierarchy governing these dynamics: class variance is the primary determinant of learning order—consistently favoring higher-variance classes—while centroid geometry plays a secondary role.
-				
-				Sampling imbalance acts as a modulator that can reverse this ordering and, under strong imbalance, forces minority classes to acquire distinct, delayed speciation times during backward diffusion.
-				
-				Together, these results suggest that diffusion models can memorize some classes while others remain insufficiently learned. We validate our theoretical predictions empirically using U-Net models trained on Fashion MNIST.
+      				While models typically transition from an initial phase of generalization to memorizing the training set, existing theory assumes homogeneous data, leaving open how class imbalance and heterogeneity reshape these dynamics.
+      				
+      				In this work, we develop a high-dimensional analytical framework to study class-dependent learning in score-based diffusion models. Analyzing a random-features model trained on Gaussian mixtures, we derive the feature-covariance spectrum to characterize per-class generalization and memorization times.
+      				
+      				We reveal the explicit hierarchy governing these dynamics: class variance is the primary determinant of learning order—consistently favoring higher-variance classes—while centroid geometry plays a secondary role.
+      				
+      				Sampling imbalance acts as a modulator that can reverse this ordering and, under strong imbalance, forces minority classes to acquire distinct, delayed speciation times during backward diffusion.
+      				
+      				Together, these results suggest that diffusion models can memorize some classes while others remain insufficiently learned. We validate our theoretical predictions empirically using U-Net models trained on Fashion MNIST.
               
               <br><br>
               
               <b>Bio:</b> Flavio worked from 2020 to 2023 as a PhD student with Prof. Federico Ricci-Tersenghi (Sapienza University of Rome) and Prof. Silvio Franz (Université Paris-Saclay) in an international cotutelle program, studying the low-temperature physics of vector spin glasses.
 				
-				From July 2023 to March 2025, he worked as a postdoc with Prof. Federico Ricci-Tersenghi, studying generalizations of vector spin glasses to neural network models.
+				      From July 2023 to March 2025, he worked as a postdoc with Prof. Federico Ricci-Tersenghi, studying generalizations of vector spin glasses to neural network models.
 				
-				His current research focuses on understanding the impact of bias in machine learning and animal behaviour, building on simplified and solvable neural network models. (Flavio is a postdoc at DSAI.)
+				      Flavio is now a postdoc at DSAI working with Stefano Sarao Mannelli. His current research focuses on understanding the impact of bias in machine learning and animal behaviour, building on simplified and solvable neural network models.
             </div>
           </td>
         </tr>
