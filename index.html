@@ -374,29 +374,7 @@
             </div>
           </td>
         </tr>
-        <tr data-date="2026-11-30">
-          <td class="date">30 November 2026</td>
-          <td class="speaker">
-            Valter Schütz
-            <span class="affiliation">Chalmers and GU</span>
-          </td>
-          <td>
-            <span class="title">Title: TBD</span>
-            <div class="meta">
-              <span class="time">14:00–14:30</span>
-              <span class="place">Analysen, EDIT Building</span>
-            </div>
-            <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
-            <div class="abstract" hidden>
-              TBD
-              
-              <br><br>
-              
-              <b>Bio:</b> TBD. (Valter is a PhD student in DSAI.)
-            </div>
-          </td>
-        </tr>
-        <tr data-date="2026-11-30">
+        <tr data-date="2026-11-30T14:30:00">
           <td class="date">30 November 2026</td>
           <td class="speaker">
             Xuechen Liu
@@ -418,29 +396,29 @@
             </div>
           </td>
         </tr>
-        <tr data-date="2026-11-23">
-          <td class="date">23 November 2026</td>
+        <tr data-date="2026-11-30T14:00:00">
+          <td class="date">30 November 2026</td>
           <td class="speaker">
-            Nicolas Faross
+            Valter Schütz
             <span class="affiliation">Chalmers and GU</span>
           </td>
           <td>
-            <span class="title">Classical Shadows with Selective GHZ Measurements</span>
+            <span class="title">Title: TBD</span>
             <div class="meta">
               <span class="time">14:00–14:30</span>
               <span class="place">Analysen, EDIT Building</span>
             </div>
             <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
             <div class="abstract" hidden>
-              In this talk, we present our recent work on classical shadows with selective GHZ measurements. Classical shadows offer a way to predict many properties of an unknown quantum system from measurement data, but their efficiency strongly depends on the underlying measurement settings. After a quick introduction, we describe a family of measurement settings that are simple to implement and can be tuned to different classes of structured observables. We derive explicit reconstruction formulas and illustrate applications to estimating nonlocal quantum correlations in fermionic systems. The talk will give an accessible overview of the main mathematical ideas, assuming no background in quantum information. (This is joint work with Marc Wanner, Pingal Pratyush Nath, Akshay Gaikwad, Anton Frisk Kockum and Devdatt Dubhashi.)
+              TBD
               
               <br><br>
               
-              <b>Bio:</b> Nicolas Faross is a postdoctoral researcher in the Division of Data Science and AI at the Department of Computer Science and Engineering, Chalmers University of Technology, hosted by Devdatt Dubhashi. His research interests are in quantum computing and quantum information, particularly classical shadows and learning from quantum measurement data. His broader interests also include symbolic computation and automated reasoning, as well as quantum symmetries of combinatorial structures. Before his postdoc, he obtained his PhD in Mathematics at Saarland University under the supervision of Moritz Weber.
+              <b>Bio:</b> TBD. (Valter is a PhD student in DSAI.)
             </div>
           </td>
         </tr>
-        <tr data-date="2026-11-23">
+        <tr data-date="2026-11-23T14:30:00">
           <td class="date">23 November 2026</td>
           <td class="speaker">
             Stefano Ribes
@@ -459,6 +437,28 @@
               <br><br>
               
               <b>Bio:</b> I'm a PhD student in the AI Laboratory for Molecular Engineering (AIME) group led by Rocío Mercado Oropeza at Chalmers University of Technology. Before joining the group, while pursuing a master's degree in Data Science and AI at Chalmers, I completed my master's thesis at AstraZeneca, where I worked on developing machine learning models for targeted protein degradation. My research has focused on developing AI-driven methods for PROTAC drug discovery, including molecular representation and decomposition, degradation activity prediction, and synthetic accessibility assessment. More recently, I have been exploring how these predictive models can be integrated with generative AI to guide the design and optimization of novel PROTACs.
+            </div>
+          </td>
+        </tr>
+        <tr data-date="2026-11-23T14:00:00">
+          <td class="date">23 November 2026</td>
+          <td class="speaker">
+            Nicolas Faross
+            <span class="affiliation">Chalmers and GU</span>
+          </td>
+          <td>
+            <span class="title">Classical Shadows with Selective GHZ Measurements</span>
+            <div class="meta">
+              <span class="time">14:00–14:30</span>
+              <span class="place">Analysen, EDIT Building</span>
+            </div>
+            <button class="toggle-abstract" type="button" aria-expanded="false">Show abstract</button>
+            <div class="abstract" hidden>
+              In this talk, we present our recent work on classical shadows with selective GHZ measurements. Classical shadows offer a way to predict many properties of an unknown quantum system from measurement data, but their efficiency strongly depends on the underlying measurement settings. After a quick introduction, we describe a family of measurement settings that are simple to implement and can be tuned to different classes of structured observables. We derive explicit reconstruction formulas and illustrate applications to estimating nonlocal quantum correlations in fermionic systems. The talk will give an accessible overview of the main mathematical ideas, assuming no background in quantum information. (This is joint work with Marc Wanner, Pingal Pratyush Nath, Akshay Gaikwad, Anton Frisk Kockum and Devdatt Dubhashi.)
+              
+              <br><br>
+              
+              <b>Bio:</b> Nicolas Faross is a postdoctoral researcher in the Division of Data Science and AI at the Department of Computer Science and Engineering, Chalmers University of Technology, hosted by Devdatt Dubhashi. His research interests are in quantum computing and quantum information, particularly classical shadows and learning from quantum measurement data. His broader interests also include symbolic computation and automated reasoning, as well as quantum symmetries of combinatorial structures. Before his postdoc, he obtained his PhD in Mathematics at Saarland University under the supervision of Moritz Weber.
             </div>
           </td>
         </tr>
@@ -1070,8 +1070,13 @@ structured flow of spontaneous cognition. More broadly, the work presented in th
     if (scheduleBody) {
       const rows = Array.from(scheduleBody.querySelectorAll('tr[data-date]'));
       const parsed = rows.map((row) => {
-        const date = new Date(row.dataset.date);
-        date.setHours(0, 0, 0, 0);
+        const dateString = row.dataset.date;
+        const date = new Date(dateString);
+
+        // Set default time if non-set (ISO date-time strings include a time after "T" or a space)
+        if (!/[T\s]\d{2}:\d{2}/.test(dateString)) {
+          date.setHours(0, 0, 0, 0);
+        }
         return { row, date };
       });
 
